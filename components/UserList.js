@@ -38,6 +38,26 @@ const styles = StyleSheet.create({
 })
 //------------------------------------
 
+function UserCard(props) {
+    const { first_name, last_name, avatar } = props.data;
+    return (
+        <View style={styles.card}>
+
+            <View style={styles.card__avatar}>
+                <Image
+                    style={styles.card__avatar__img}
+                    source={{ uri: avatar }} />
+            </View>
+
+            <Text style={styles.card__data}>
+                {first_name} {last_name}
+            </Text>
+
+        </View>
+    )
+}
+//------------------------------------
+
 function UserList() {
     const [userData, setUserData] = useState([])
 
@@ -57,25 +77,6 @@ function UserList() {
             </ScrollView>
         </>
     }
-}
-
-export function UserCard(props) {
-    const { first_name, last_name, avatar } = props.data;
-    return (
-        <View style={styles.card}>
-
-            <View style={styles.card__avatar}>
-                <Image
-                    style={styles.card__avatar__img}
-                    source={{ uri: avatar }} />
-            </View>
-
-            <Text style={styles.card__data}>
-                {first_name} {last_name}
-            </Text>
-
-        </View>
-    )
 }
 
 export default UserList;

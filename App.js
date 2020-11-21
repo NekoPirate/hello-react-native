@@ -1,38 +1,29 @@
-import React from 'react'
+import React from 'react';
 //------------------------------------
 
 import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 //------------------------------------
 
-import HomeScreen from './screen/HomeScreen.js'
-import DetailsScreen from './screen/DetailsScreen.js'
+import {
+  HomeRoutes,
+  MyAppRoutes,
+} from './screen/Routes'
 //------------------------------------
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator()
 //------------------------------------
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home">
+      <Tab.Navigator>
 
-        <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ title: "HOME" }}
-        />
-        <Stack.Screen
-          name="Details"
-          component={DetailsScreen}
-          options={{ title: "DETAILS" }}
-        />
+        <Tab.Screen name="Home" component={HomeRoutes} />
+        <Tab.Screen name='MyApp' component={MyAppRoutes} options={{ title: 'LE MIE APPLICAZIONI' }} />
 
-      </Stack.Navigator>
-    </NavigationContainer>
+      </Tab.Navigator>
+    </NavigationContainer >
   );
 }
-
 export default App
-//------------------------------------------------------------------
